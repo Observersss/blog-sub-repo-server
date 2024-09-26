@@ -12,10 +12,10 @@ const PORT = process.env.PORT || 8012;
 const BASE_URL = '/api';
 
 app.use(express.json());
-app.use(AuthMiddleware);
-
 
 app.use(BASE_URL+'/user',userRouter);
+
+app.use(AuthMiddleware);
 
 async function startApp(){
     pool.query(`SELECT NOW()`,(err) => {
